@@ -117,6 +117,27 @@ export default function SponsorsScreen() {
           </TouchableOpacity>
         </View>
 
+        {/* Card Orthésiste */}
+        <View style={sp.card}>
+          <Image
+            source={require('../../assets/images/orthesiste-logo.png')}
+            style={sp.logo}
+            resizeMode="contain"
+          />
+          <View style={sp.badge}>
+            <Text style={sp.badgeText}>{t(lang, 'partenaire_medical')}</Text>
+          </View>
+          <Text style={sp.sponsorName}>Orthésiste</Text>
+          <Text style={sp.sponsorDesc}>{t(lang, 'orthesiste_desc')}</Text>
+          <TouchableOpacity
+            style={sp.visitBtn}
+            activeOpacity={0.8}
+            onPress={() => openLink('https://orthese-main.d-web64.com')}
+          >
+            <Text style={sp.visitBtnText}>{t(lang, 'visiter_site')}</Text>
+          </TouchableOpacity>
+        </View>
+
         {/* Devenir partenaire */}
         <View style={sp.ctaCard}>
           <Text style={sp.ctaTitle}>{t(lang, 'devenir_partenaire')}</Text>

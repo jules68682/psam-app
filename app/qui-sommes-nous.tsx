@@ -51,11 +51,11 @@ const TEAM = [
 ] as const;
 
 const EXPERTS = [
-  { id: 'joel-rezzouk', name: 'Dr Joël REZZOUK', role: 'Chirurgien de la Main', initials: 'JR', website: 'https://usma-sante.fr' },
-  { id: 'valerie-madert', name: 'Valérie MADERT', role: 'Ergothérapeute, Orthésiste', initials: 'VM', website: 'https://orthese-main.com' },
-  { id: 'corinne-moulet', name: 'Corinne MOULET', role: 'Nutritionniste, Hypnothérapeute', initials: 'CM', website: null },
-  { id: 'rosario-baladron', name: 'Rosario BALADRON', role: 'Kinésithérapeute de la Main', initials: 'RB', website: null },
-  { id: 'michel-boutan', name: 'Michel BOUTAN', role: 'Kinésithérapeute de la Main', initials: 'MB', website: null },
+  { id: 'joel-rezzouk', name: 'Dr Joël REZZOUK', role: 'Chirurgien de la Main', initials: 'JR', website: 'https://usma-sante.fr', image: require('../assets/images/equipe/joel-rezzouk.jpg') },
+  { id: 'valerie-madert', name: 'Valérie MADERT', role: 'Ergothérapeute, Orthésiste', initials: 'VM', website: 'https://orthese-main.d-web64.com', image: require('../assets/images/equipe/valerie-madert.png') },
+  { id: 'corinne-moulet', name: 'Corinne MOULET', role: 'Nutritionniste, Hypnothérapeute', initials: 'CM', website: null, image: require('../assets/images/equipe/corinne-moulet.png') },
+  { id: 'rosario-baladron', name: 'Rosario BALADRON', role: 'Kinésithérapeute de la Main', initials: 'RB', website: null, image: require('../assets/images/equipe/rosario-baladron.png') },
+  { id: 'michel-boutan', name: 'Michel BOUTAN', role: 'Kinésithérapeute de la Main', initials: 'MB', website: null, image: require('../assets/images/equipe/michel-boutan.png') },
 ] as const;
 
 export default function QuiSommesNousScreen() {
@@ -135,9 +135,7 @@ export default function QuiSommesNousScreen() {
 
           {EXPERTS.map(e => (
             <View key={e.id} style={s.expertRow}>
-              <View style={s.expertAvatar}>
-                <Text style={s.expertInitials}>{e.initials}</Text>
-              </View>
+              <Image source={e.image} style={s.expertAvatar} resizeMode="cover" />
               <View style={s.expertText}>
                 <Text style={s.expertName}>{e.name}</Text>
                 <Text style={s.expertRole}>{e.role}</Text>
@@ -218,8 +216,7 @@ const s = StyleSheet.create({
     flexDirection: 'row', alignItems: 'center', gap: 14,
     backgroundColor: COLORS.cream, borderRadius: 16, padding: 14, marginTop: 12,
   },
-  expertAvatar: { width: 48, height: 48, borderRadius: 24, backgroundColor: COLORS.sage, alignItems: 'center', justifyContent: 'center' },
-  expertInitials: { fontSize: 15, fontFamily: FONTS.title, fontWeight: '700', color: COLORS.white },
+  expertAvatar: { width: 90, height: 90, borderRadius: 45, backgroundColor: '#E5E1D8', borderWidth: 2, borderColor: COLORS.sage },
   expertText: { flex: 1 },
   expertName: { fontSize: 15, fontFamily: FONTS.title, fontWeight: '700', color: COLORS.text },
   expertRole: { fontSize: 13, fontFamily: FONTS.body, color: COLORS.sage, marginTop: 2 },
