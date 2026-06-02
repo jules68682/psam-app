@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "psam-app",
+    "name": "PSAM",
     "slug": "psam-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,16 +8,24 @@
     "scheme": "psamapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F7F4ED"
+    },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "fr.preventionsantearthrosemain.app",
+      "buildNumber": "1"
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
+        "foregroundImage": "./assets/images/icon.png",
+        "backgroundColor": "#F7F4ED",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
+      "package": "fr.preventionsantearthrosemain.app",
+      "versionCode": 1,
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false
     },
@@ -30,12 +38,11 @@
       [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 200,
+          "image": "./assets/images/splash.png",
           "resizeMode": "contain",
-          "backgroundColor": "#ffffff",
+          "backgroundColor": "#F7F4ED",
           "dark": {
-            "backgroundColor": "#000000"
+            "backgroundColor": "#F7F4ED"
           }
         }
       ],
@@ -44,6 +51,9 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "privacyPolicyUrl": "https://prevention-sante-arthrose-main.fr/politique-de-confidentialite"
     }
   }
 }
