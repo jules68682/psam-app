@@ -1,0 +1,27 @@
+{
+  "_README": "Glossaire médical PSAM. Termes FR -> traductions imposées EN/ES. Le script scripts/translate-content.ts protège ces termes AVANT d'appeler le moteur de traduction et restitue la traduction imposée APRES, garantissant une terminologie cohérente. L'équipe médicale peut compléter / corriger ce fichier librement. Clés = terme source FR (insensible à la casse, accents inclus). Les entrées les plus longues sont appliquées en priorité. Ne pas inventer de termes : laisser une entrée vide => elle sera ignorée.",
+  "_format": { "<terme FR>": { "en": "<terme EN>", "es": "<terme ES>" } },
+  "terms": {
+    "rhizarthrose": { "en": "trapeziometacarpal osteoarthritis", "es": "rizartrosis" },
+    "arthrose de la main": { "en": "hand osteoarthritis", "es": "artrosis de la mano" },
+    "arthrose du pouce": { "en": "thumb osteoarthritis", "es": "artrosis del pulgar" },
+    "arthrose": { "en": "osteoarthritis", "es": "artrosis" },
+    "orthèse de repos": { "en": "resting orthosis", "es": "órtesis de reposo" },
+    "orthèse d'activité": { "en": "activity orthosis", "es": "órtesis de actividad" },
+    "orthèse": { "en": "orthosis", "es": "órtesis" },
+    "ergothérapie": { "en": "occupational therapy", "es": "terapia ocupacional" },
+    "ergothérapeute": { "en": "occupational therapist", "es": "terapeuta ocupacional" },
+    "kinésithérapie": { "en": "physiotherapy", "es": "fisioterapia" },
+    "kinésithérapeute": { "en": "physiotherapist", "es": "fisioterapeuta" },
+    "trapézométacarpienne": { "en": "trapeziometacarpal", "es": "trapeciometacarpiana" },
+    "articulation": { "en": "joint", "es": "articulación" },
+    "cartilage": { "en": "cartilage", "es": "cartílago" },
+    "prothèse": { "en": "prosthesis", "es": "prótesis" },
+    "anti-inflammatoire": { "en": "anti-inflammatory", "es": "antiinflamatorio" },
+    "micronutrition": { "en": "micronutrition", "es": "micronutrición" },
+    "préhension": { "en": "grip", "es": "prensión" },
+    "post-opératoire": { "en": "post-operative", "es": "postoperatorio" },
+    "infiltration": { "en": "injection", "es": "infiltración" },
+    "rééducation": { "en": "rehabilitation", "es": "rehabilitación" }
+  }
+}

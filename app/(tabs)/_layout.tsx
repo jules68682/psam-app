@@ -1,34 +1,61 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
+import { Ionicons } from '@expo/vector-icons';
+import { COLORS } from '@/constants/theme';
+import { useLang } from '../../context/LanguageContext';
+import { t } from '../../lib/translations';
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+type IconName = React.ComponentProps<typeof Ionicons>['name'];
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+function tabIcon(name: IconName) {
+  return ({ color, size }: { color: string; size: number }) => (
+    <Ionicons name={name} color={color} size={size} />
+  );
+}
+
+export default function TabsLayout() {
+  // S'abonner à la langue active : force le re-render des libellés d'onglets au switch.
+  const { lang } = useLang();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
+        tabBarActiveTintColor: COLORS.primary,
+        tabBarInactiveTintColor: '#9E9E9E',
+        tabBarStyle: {
+          backgroundColor: COLORS.white,
+          borderTopColor: '#E8E4DD',
+          borderTopWidth: 1,
+        },
         headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
+        options={{ title: t(lang, 'accueil'), tabBarIcon: tabIcon('home') }}
       />
       <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
+        name="poles"
+        options={{ title: t(lang, 'poles'), tabBarIcon: tabIcon('grid') }}
+      />
+      <Tabs.Screen
+        name="videotheque"
+        options={{ title: t(lang, 'videotheque'), tabBarIcon: tabIcon('play-circle') }}
+      />
+      <Tabs.Screen
+        name="evenements"
+        options={{ title: t(lang, 'evenements'), tabBarIcon: tabIcon('calendar') }}
+      />
+      <Tabs.Screen
+        name="favoris"
+        options={{ title: t(lang, 'nav_favoris'), tabBarIcon: tabIcon('heart') }}
+      />
+      <Tabs.Screen
+        name="missions"
+        options={{ title: t(lang, 'missions'), tabBarIcon: tabIcon('flag') }}
+      />
+      <Tabs.Screen
+        name="sponsors"
+        options={{ title: t(lang, 'sponsors'), tabBarIcon: tabIcon('star') }}
       />
     </Tabs>
   );
