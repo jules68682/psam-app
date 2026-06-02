@@ -200,6 +200,9 @@ export const translations = {
     social_facebook: 'Suivez-nous sur Facebook',
     // Accueil — footer cliquable
     footer_en_savoir_plus: 'En savoir plus',
+    // Politique de confidentialité
+    privacy_link: 'Politique de confidentialité',
+    privacy_title: 'Politique de confidentialité',
     // Qui sommes-nous
     qsn_eyebrow: "L'association",
     qsn_hero_title: 'Une équipe pluridisciplinaire engagée',
@@ -403,6 +406,8 @@ export const translations = {
     // Social networks
     social_instagram: 'Follow us on Instagram',
     social_facebook: 'Follow us on Facebook',
+    privacy_link: 'Privacy policy',
+    privacy_title: 'Privacy policy',
     // Home — clickable footer
     footer_en_savoir_plus: 'Learn more',
     // About us
@@ -608,6 +613,8 @@ export const translations = {
     // Redes sociales
     social_instagram: 'Síguenos en Instagram',
     social_facebook: 'Síguenos en Facebook',
+    privacy_link: 'Política de privacidad',
+    privacy_title: 'Política de privacidad',
     // Inicio — pie clicable
     footer_en_savoir_plus: 'Saber más',
     // Quiénes somos

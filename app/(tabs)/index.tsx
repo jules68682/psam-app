@@ -333,6 +333,18 @@ export default function AccueilScreen() {
               </TouchableOpacity>
             </View>
 
+            {/* Lien politique de confidentialité */}
+            <TouchableOpacity
+              style={s.privacyBtn}
+              activeOpacity={0.7}
+              onPress={() => router.push('/politique-confidentialite')}
+              hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+              accessibilityRole="link"
+              accessibilityLabel={t(lang, 'privacy_link')}
+            >
+              <Text style={s.privacyText}>{t(lang, 'privacy_link')}</Text>
+            </TouchableOpacity>
+
             {/* Indicateur « En savoir plus » */}
             <View style={s.footerMore}>
               <Text style={s.footerMoreText}>{t(lang, 'footer_en_savoir_plus')} →</Text>
@@ -461,6 +473,8 @@ const s = StyleSheet.create({
     width: 48, height: 48, borderRadius: 24, backgroundColor: COLORS.white,
     alignItems: 'center', justifyContent: 'center',
   },
+  privacyBtn: { alignSelf: 'center', marginTop: 18 },
+  privacyText: { fontSize: 12, fontFamily: FONTS.body, color: 'rgba(255,255,255,0.85)', textDecorationLine: 'underline', letterSpacing: 0.3 },
   footerMore: { flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 18 },
   footerMoreText: { fontSize: 12, fontFamily: FONTS.body, fontWeight: '700', color: COLORS.white, letterSpacing: 0.5 },
 });
