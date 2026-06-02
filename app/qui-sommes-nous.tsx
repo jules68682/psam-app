@@ -34,7 +34,7 @@ const TEAM = [
     bio: 'Nutritionniste spécialisée en nutrition anti-arthrose et hypnothérapeute. Elle anime des ateliers Nutri Arthrose pour aider chacun à adapter son alimentation et mieux vivre avec l\'arthrose.',
     quote: "Ce que vous mettez dans votre assiette joue un rôle clé ! Certains aliments favorisent l'inflammation, d'autres la réduisent. Mieux manger, c'est aider vos articulations à mieux vieillir.",
     website: null,
-    image: require('../assets/images/equipe/corinne-moulet.jpg'),
+    image: require('../assets/images/equipe/corinne-moulet.png'),
     initials: 'CM',
   },
   {
