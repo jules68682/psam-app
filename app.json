@@ -16,7 +16,10 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "fr.preventionsantearthrosemain.app",
-      "buildNumber": "1"
+      "buildNumber": "1",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -53,7 +56,11 @@
       "reactCompiler": true
     },
     "extra": {
-      "privacyPolicyUrl": "https://prevention-sante-arthrose-main.fr/politique-de-confidentialite"
+      "privacyPolicyUrl": "https://prevention-sante-arthrose-main.fr/politique-de-confidentialite",
+      "router": {},
+      "eas": {
+        "projectId": "415f4be1-5065-4763-8a7c-0b899ca86154"
+      }
     }
   }
 }
