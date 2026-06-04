@@ -27,7 +27,7 @@
         "backgroundColor": "#F7F4ED",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "package": "fr.preventionsantearthrosemain.app",
+      "package": "fr.psam.preventionsantearthrosemain",
       "versionCode": 1,
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false

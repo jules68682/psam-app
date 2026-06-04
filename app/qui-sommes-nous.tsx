@@ -45,7 +45,7 @@ const TEAM = [
     bio: "Au sein de PSAM, Stéphanie est le point de contact central pour tous nos partenaires. En tant que responsable des partenariats, directrice de projet, chargée de communication et gestionnaire administrative, elle assure la liaison entre l'association et ses partenaires, institutions et interlocuteurs clés.",
     quote: null,
     website: null,
-    image: require('../assets/images/equipe/stephanie-lasserre.jpg'),
+    image: null,
     initials: 'SL',
   },
 ] as const;
