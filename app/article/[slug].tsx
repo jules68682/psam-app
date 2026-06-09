@@ -3,10 +3,12 @@ import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useLocalSearchParams, router } from 'expo-router';
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback } from 'react';
+import * as WebBrowser from 'expo-web-browser';
 import { COLORS, FONTS } from '@/constants/theme';
 import { useFavoris } from '@/hooks/useFavoris';
 import { useContent } from '@/hooks/useContent';
 import ENableSection from '@/components/ENableSection';
+import { getArticleSources } from '@/lib/sources';
 import { useLang } from '../../context/LanguageContext';
 import { t } from '../../lib/translations';
 
@@ -36,6 +38,7 @@ export default function ArticleDetailScreen() {
   }
 
   const favori = isFavori(article.slug);
+  const sources = getArticleSources(article.slug, article.poleSlug);
 
   return (
     <SafeAreaView style={s.safe} edges={['left', 'right']}>
@@ -86,7 +89,7 @@ export default function ArticleDetailScreen() {
 
         {(article.videos?.length ?? 0) > 0 && (
           <View style={s.videosBlock}>
-            <Text style={s.videosTitle}>🎥 Vidéos associées</Text>
+            <Text style={s.videosTitle}>Vidéos associées</Text>
             {article.videos!.map((v, i) => (
               <TouchableOpacity key={i} style={s.videoBtn} activeOpacity={0.8}
                 onPress={() => Linking.openURL(v.embedUrl.replace('/embed/', '/watch?v='))}>
@@ -98,6 +101,37 @@ export default function ArticleDetailScreen() {
         )}
 
         {article.slug === 'materiels-soins-terebenthine' && <ENableSection lang={lang} />}
+
+        {sources.length > 0 && (
+          <View style={s.sourcesBlock}>
+            <Text style={s.sourcesTitle}>{t(lang, 'sources_title')}</Text>
+            <Text style={s.sourcesIntro}>{t(lang, 'sources_intro')}</Text>
+            {sources.map((src, i) => (
+              src.url ? (
+                <TouchableOpacity
+                  key={i}
+                  style={s.sourceRow}
+                  activeOpacity={0.7}
+                  onPress={() => WebBrowser.openBrowserAsync(src.url!)}
+                  accessibilityRole="link"
+                  accessibilityLabel={src.label}
+                >
+                  <Text style={s.sourceBullet}>•</Text>
+                  <Text style={s.sourceLink}>{src.label}</Text>
+                </TouchableOpacity>
+              ) : (
+                <View key={i} style={s.sourceRow}>
+                  <Text style={s.sourceBullet}>•</Text>
+                  <Text style={s.sourceText}>{src.label}</Text>
+                </View>
+              )
+            ))}
+          </View>
+        )}
+
+        <View style={s.disclaimerBlock}>
+          <Text style={s.disclaimerText}>{t(lang, 'medical_disclaimer_footer')}</Text>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -132,4 +166,13 @@ const s = StyleSheet.create({
   videoBtn: { flexDirection: 'row', alignItems: 'center', backgroundColor: COLORS.primary, borderRadius: 10, paddingVertical: 12, paddingHorizontal: 14, gap: 10 },
   videoBtnIcon: { fontSize: 14, color: COLORS.white },
   videoBtnText: { flex: 1, fontSize: 14, fontFamily: FONTS.body, fontWeight: '600', color: COLORS.white, lineHeight: 19 },
+  sourcesBlock: { marginTop: 28, backgroundColor: COLORS.white, borderRadius: 14, padding: 16, gap: 6 },
+  sourcesTitle: { fontSize: 16, fontFamily: FONTS.title, fontWeight: '700', color: COLORS.text, marginBottom: 2 },
+  sourcesIntro: { fontSize: 13, fontFamily: FONTS.body, color: COLORS.textLight, lineHeight: 19, marginBottom: 8 },
+  sourceRow: { flexDirection: 'row', gap: 8, paddingVertical: 4 },
+  sourceBullet: { fontSize: 15, color: COLORS.primary, lineHeight: 21, fontWeight: '700' },
+  sourceLink: { flex: 1, fontSize: 14, fontFamily: FONTS.body, color: COLORS.primary, lineHeight: 21, textDecorationLine: 'underline', fontWeight: '600' },
+  sourceText: { flex: 1, fontSize: 14, fontFamily: FONTS.body, color: COLORS.text, lineHeight: 21 },
+  disclaimerBlock: { marginTop: 16, backgroundColor: '#F3EFE6', borderRadius: 12, borderLeftWidth: 3, borderLeftColor: COLORS.primary, padding: 14 },
+  disclaimerText: { fontSize: 13, fontFamily: FONTS.body, color: COLORS.textLight, lineHeight: 19, fontStyle: 'italic' },
 });

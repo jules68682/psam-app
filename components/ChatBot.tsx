@@ -4,6 +4,7 @@ import {
   TouchableOpacity, StyleSheet, Animated, KeyboardAvoidingView, Platform,
 } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import MaterialIcons from '@expo/vector-icons/MaterialIcons'
 import { COLORS, FONTS } from '../constants/theme'
 import { useLang } from '../context/LanguageContext'
 import { t, Lang } from '../lib/translations'
@@ -156,7 +157,7 @@ export default function ChatBot() {
         activeOpacity={0.85}
         onPress={() => setOpen(true)}
       >
-        <Text style={c.fabIcon}>💬</Text>
+        <MaterialIcons name="chat-bubble-outline" size={26} color="#fff" />
       </TouchableOpacity>
 
       {/* Modal */}
@@ -231,6 +232,9 @@ export default function ChatBot() {
                 <Text style={c.sendIcon}>›</Text>
               </TouchableOpacity>
             </View>
+
+            {/* Avertissement médical permanent */}
+            <Text style={c.disclaimer}>{t(lang, 'chatbot_disclaimer')}</Text>
           </KeyboardAvoidingView>
         </SafeAreaView>
       </Modal>
@@ -258,7 +262,6 @@ const c = StyleSheet.create({
     shadowRadius: 8,
     elevation: 8,
   },
-  fabIcon: { fontSize: 24, color: '#fff' },
 
   safe: { flex: 1, backgroundColor: '#F7F4ED' },
 
@@ -361,4 +364,15 @@ const c = StyleSheet.create({
   },
   sendBtnDisabled: { opacity: 0.4 },
   sendIcon: { fontSize: 24, color: '#fff', fontWeight: '700', lineHeight: 28 },
+
+  disclaimer: {
+    fontSize: 11,
+    fontFamily: FONTS.body,
+    color: COLORS.textLight,
+    backgroundColor: '#fff',
+    textAlign: 'center',
+    paddingHorizontal: 16,
+    paddingBottom: 10,
+    lineHeight: 15,
+  },
 })

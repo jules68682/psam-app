@@ -17,12 +17,10 @@ const MAIL_INSCRIPTION = 'mailto:prevention.sante.arthrose.main@gmail.com?subjec
 const MAIL_JOURNEE = 'mailto:prevention.sante.arthrose.main@gmail.com?subject=Journ%C3%A9e%20mondiale%20de%20l%27arthrose%20-%2017%20septembre';
 const MAIL_SANTEXPO = 'mailto:prevention.sante.arthrose.main@gmail.com?subject=SantExpo%20-%20Unit%C3%A9%20Sant%C3%A9%20Main%20Professionnelle';
 
-function DetailRow({ icon, text }: { icon: string; text: string }) {
+function DetailRow({ text }: { text: string }) {
   return (
     <View style={es.detailRow}>
-      <View style={es.detailIconWrap}>
-        <Text style={es.detailIconText}>{icon}</Text>
-      </View>
+      <View style={es.detailDot} />
       <Text style={es.detailText}>{text}</Text>
     </View>
   );
@@ -67,10 +65,10 @@ export default function EvenementsScreen() {
 
               <View style={es.sep} />
 
-              <DetailRow icon="📍" text={t(lang, 'lieu')} />
-              <DetailRow icon="📅" text={t(lang, 'date_event')} />
-              <DetailRow icon="💰" text={t(lang, 'prix')} />
-              <DetailRow icon="👨‍🍳" text={t(lang, 'chef')} />
+              <DetailRow text={t(lang, 'lieu')} />
+              <DetailRow text={t(lang, 'date_event')} />
+              <DetailRow text={t(lang, 'prix')} />
+              <DetailRow text={t(lang, 'chef')} />
 
               <View style={es.sep} />
 
@@ -226,8 +224,7 @@ const es = StyleSheet.create({
   card1Subtitle: { fontSize: 14, fontFamily: FONTS.body, fontStyle: 'italic', color: 'rgba(255,255,255,0.8)', marginTop: 4 },
   sep: { height: 1, backgroundColor: 'rgba(255,255,255,0.2)', marginVertical: 20 },
   detailRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
-  detailIconWrap: { width: 32, height: 32, borderRadius: 16, backgroundColor: 'rgba(255,255,255,0.15)', alignItems: 'center', justifyContent: 'center' },
-  detailIconText: { fontSize: 16 },
+  detailDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: 'rgba(255,255,255,0.7)' },
   detailText: { flex: 1, fontSize: 14, fontFamily: FONTS.body, color: COLORS.white, marginLeft: 12, lineHeight: 20 },
   btnWhite: { backgroundColor: COLORS.white, borderRadius: 12, paddingVertical: 15, alignItems: 'center', marginBottom: 10 },
   btnWhiteText: { fontSize: 15, fontFamily: FONTS.body, fontWeight: '700', color: COLORS.primary },

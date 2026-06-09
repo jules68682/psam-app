@@ -118,6 +118,11 @@ export const translations = {
     chatbot_welcome: 'Bonjour ! Je suis l\'assistant PSAM. Je peux répondre à vos questions sur l\'arthrose de la main, nos outils, nos événements et nos services. Comment puis-je vous aider ?',
     chatbot_error: 'Une erreur est survenue. Vérifiez votre connexion.',
     chatbot_no_reply: "Désolé, je n'ai pas pu répondre.",
+    chatbot_disclaimer: 'Informations à titre indicatif. Ne remplacent pas l\'avis d\'un professionnel de santé.',
+    // Sources & avertissement médical
+    sources_title: 'Sources',
+    sources_intro: 'Informations issues de sources de référence. Touchez une source pour la consulter.',
+    medical_disclaimer_footer: 'Ces informations sont fournies à titre informatif et ne remplacent pas l\'avis d\'un professionnel de santé. Consultez un médecin pour tout diagnostic ou traitement.',
     // Navigation (label court onglet)
     nav_favoris: 'Favoris',
     // Accueil — divers
@@ -334,6 +339,10 @@ export const translations = {
     chatbot_welcome: 'Hello! I am the PSAM assistant. I can answer your questions about hand arthritis, our tools, our events and our services. How can I help you?',
     chatbot_error: 'An error occurred. Please check your connection.',
     chatbot_no_reply: "Sorry, I couldn't reply.",
+    chatbot_disclaimer: 'For information only. Does not replace the advice of a healthcare professional.',
+    sources_title: 'Sources',
+    sources_intro: 'Information based on reference sources. Tap a source to open it.',
+    medical_disclaimer_footer: 'This information is provided for informational purposes only and does not replace the advice of a healthcare professional. Consult a doctor for any diagnosis or treatment.',
     nav_favoris: 'Favorites',
     assoc_badge: 'NON-PROFIT · LAW 1901',
     tout_voir: 'See all ›',
@@ -541,6 +550,10 @@ export const translations = {
     chatbot_welcome: '¡Hola! Soy el asistente de PSAM. Puedo responder sus preguntas sobre la artrosis de la mano, nuestras herramientas, eventos y servicios. ¿En qué puedo ayudarle?',
     chatbot_error: 'Se produjo un error. Verifique su conexión.',
     chatbot_no_reply: 'Lo siento, no pude responder.',
+    chatbot_disclaimer: 'Información a título indicativo. No sustituye el consejo de un profesional de la salud.',
+    sources_title: 'Fuentes',
+    sources_intro: 'Información basada en fuentes de referencia. Toque una fuente para consultarla.',
+    medical_disclaimer_footer: 'Esta información se proporciona con fines informativos y no sustituye el consejo de un profesional de la salud. Consulte a un médico para cualquier diagnóstico o tratamiento.',
     nav_favoris: 'Favoritos',
     assoc_badge: 'ASOCIACIÓN · LEY 1901',
     tout_voir: 'Ver todo ›',
