@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { type Article, type Pole } from '@/lib/content';
 import { POLE_IMAGES } from '@/lib/poleImages';
@@ -11,10 +12,22 @@ type Props = {
 
 // Carte d'article réutilisée dans la liste d'un pôle ET dans l'écran Favoris.
 export default function ArticleCard({ article, pole, onPress }: Props) {
-  const source = article.image ? { uri: article.image } : POLE_IMAGES[article.poleSlug];
+  // L'image spécifique de l'article peut être absente, relative ou cassée
+  // (lien CDN mort). En cas d'échec de chargement, on bascule sur l'image
+  // d'illustration du pôle pour ne jamais laisser de cadre vide.
+  const [failed, setFailed] = useState(false);
+  const useArticleImage = !failed && !!article.image && article.image.startsWith('http');
+  const source = useArticleImage
+    ? { uri: article.image }
+    : POLE_IMAGES[article.poleSlug];
   return (
     <TouchableOpacity style={c.card} activeOpacity={0.85} onPress={onPress}>
-      <Image source={source} style={c.image} resizeMode="contain" />
+      <Image
+        source={source}
+        style={c.image}
+        resizeMode="cover"
+        onError={() => setFailed(true)}
+      />
       <View style={c.body}>
         {pole && (
           <View style={c.badge}>
