@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
+import { MaterialIcons } from '@expo/vector-icons';
 import { useFocusEffect } from '@react-navigation/native';
 import { COLORS, FONTS } from '@/constants/theme';
 import { useFavoris } from '@/hooks/useFavoris';
@@ -48,7 +49,7 @@ export default function FavorisScreen() {
         /* ── État vide ─────────────────────────────────────────────────── */
         <View style={fs.empty}>
           <View style={fs.emptyHeart}>
-            <Text style={fs.emptyHeartIcon}>♡</Text>
+            <MaterialIcons name="favorite-border" size={36} color="#E05252" />
           </View>
           <Text style={fs.emptyTitle}>{t(lang, 'aucun_favori')}</Text>
           <Text style={fs.emptySub}>{t(lang, 'aucun_favori_desc')}</Text>
@@ -118,7 +119,6 @@ const fs = StyleSheet.create({
     backgroundColor: '#FEE2E2',
     alignItems: 'center', justifyContent: 'center', marginBottom: 24,
   },
-  emptyHeartIcon: { fontSize: 36, color: '#E05252' },
   emptyTitle: {
     fontSize: 22, fontFamily: FONTS.title, fontWeight: '700',
     color: COLORS.text, marginBottom: 12,

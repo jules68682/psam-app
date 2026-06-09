@@ -7,7 +7,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { router } from 'expo-router';
 import * as WebBrowser from 'expo-web-browser';
-import { FontAwesome } from '@expo/vector-icons';
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import { COLORS, FONTS } from '@/constants/theme';
 import { useLang } from '../../context/LanguageContext';
 import { t } from '../../lib/translations';
@@ -238,7 +238,7 @@ export default function AccueilScreen() {
                 <View style={s.discoverFavScrim} />
                 <View style={s.discoverFavContent}>
                   <View style={s.discoverFavIconWrap}>
-                    <Text style={s.discoverFavIcon}>♡</Text>
+                    <MaterialIcons name="favorite-border" size={20} color={COLORS.white} />
                   </View>
                   <View>
                     <Text style={s.discoverFavLabel}>{t(lang, 'bento_fav_label')}</Text>
@@ -439,7 +439,6 @@ const s = StyleSheet.create({
   discoverFavScrim: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, backgroundColor: 'rgba(31,61,43,0.72)', borderRadius: 20 },
   discoverFavContent: { flex: 1, padding: 14, justifyContent: 'space-between' },
   discoverFavIconWrap: { backgroundColor: 'rgba(255,255,255,0.18)', borderRadius: 12, width: 36, height: 36, alignItems: 'center', justifyContent: 'center' },
-  discoverFavIcon: { fontSize: 20, color: COLORS.white },
   discoverFavLabel: { fontSize: 8, fontFamily: FONTS.body, color: 'rgba(255,255,255,0.85)', letterSpacing: 2, marginBottom: 4 },
   discoverFavTitle: { fontSize: 13, fontFamily: FONTS.title, fontWeight: '700', color: COLORS.white, lineHeight: 17 },
 

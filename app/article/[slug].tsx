@@ -4,6 +4,7 @@ import { useLocalSearchParams, router } from 'expo-router';
 import { useFocusEffect } from '@react-navigation/native';
 import { useCallback } from 'react';
 import * as WebBrowser from 'expo-web-browser';
+import { MaterialIcons } from '@expo/vector-icons';
 import { COLORS, FONTS } from '@/constants/theme';
 import { useFavoris } from '@/hooks/useFavoris';
 import { useContent } from '@/hooks/useContent';
@@ -62,7 +63,7 @@ export default function ArticleDetailScreen() {
           accessibilityRole="button"
           accessibilityLabel={favori ? t(lang, 'retirer_favoris') : t(lang, 'ajouter_favoris')}
         >
-          <Text style={[s.heart, favori && s.heartActive]}>{favori ? '♥' : '♡'}</Text>
+          <MaterialIcons name={favori ? 'favorite' : 'favorite-border'} size={26} color={favori ? '#E05252' : COLORS.textLight} />
         </TouchableOpacity>
       </View>
 
@@ -146,8 +147,6 @@ const s = StyleSheet.create({
   iconBtn: { width: 44, height: 44, alignItems: 'center', justifyContent: 'center' },
   backIcon: { fontSize: 26, color: COLORS.primary, fontWeight: '700' },
   headerTitle: { flex: 1, fontSize: 15, fontFamily: FONTS.title, fontWeight: '600', color: COLORS.text, textAlign: 'center' },
-  heart: { fontSize: 26, color: COLORS.textLight },
-  heartActive: { color: '#E05252' },
   scroll: { padding: 20, paddingBottom: 48 },
   badge: { backgroundColor: COLORS.primary, borderRadius: 20, paddingHorizontal: 12, paddingVertical: 5, alignSelf: 'flex-start', marginBottom: 14 },
   badgeText: { fontSize: 11, fontFamily: FONTS.body, fontWeight: '700', color: COLORS.white, textTransform: 'uppercase', letterSpacing: 0.5 },
