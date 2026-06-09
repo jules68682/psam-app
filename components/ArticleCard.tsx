@@ -16,10 +16,16 @@ export default function ArticleCard({ article, pole, onPress }: Props) {
   // (lien CDN mort). En cas d'échec de chargement, on bascule sur l'image
   // d'illustration du pôle pour ne jamais laisser de cadre vide.
   const [failed, setFailed] = useState(false);
-  const useArticleImage = !failed && !!article.image && article.image.startsWith('http');
-  const source = useArticleImage
-    ? { uri: article.image }
-    : POLE_IMAGES[article.poleSlug];
+  // image article = require() local (number) OU URL distante (string).
+  const articleSource =
+    failed || article.image == null
+      ? null
+      : typeof article.image === 'number'
+        ? article.image
+        : article.image.startsWith('http')
+          ? { uri: article.image }
+          : null;
+  const source = articleSource ?? POLE_IMAGES[article.poleSlug];
   return (
     <TouchableOpacity style={c.card} activeOpacity={0.85} onPress={onPress}>
       <Image

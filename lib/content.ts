@@ -44,7 +44,8 @@ export interface Article {
   poleSlug: string;
   title: string;
   description: string;
-  image: string;
+  /** require('...') d'une image locale embarquée (number) ou URL distante (string). */
+  image: number | string;
   date?: string;
   author?: string;
   readingTime?: string; // kept for backward compat
@@ -247,7 +248,7 @@ export const articles: Article[] = [
     title: "Orthèses (post-opératoires)",
     description: "Le rôle et l'importance de l'orthèse dans la récupération après chirurgie.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Capture_d_ecran_2025-08-12_a_14.01.04_45af858a-200a-445e-882a-cd2769310b14.png",
+      require('../assets/images/articles/orthese-post-op.webp'),
     videos: [
       { embedUrl: "https://www.youtube.com/embed/gkmW4clboy4", title: "Orthèses — vidéo 1" },
       { embedUrl: "https://www.youtube.com/embed/J3vyX6kWxlA", title: "Orthèses — vidéo 2" },
@@ -294,7 +295,7 @@ Privilégier les orthèses réalisées sur mesure : elles sont adaptées à la m
     title: "Ergothérapie",
     description: "Qu'est-ce que l'ergothérapie et comment peut-elle vous aider ?",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Capture_d_ecran_2025-08-12_a_15.04.51_31643476-948d-4124-b48a-958bad35497e.png",
+      require('../assets/images/articles/ergotherapie.webp'),
     videos: [
       { embedUrl: "https://www.youtube.com/embed/fQLBOwMh7W4", title: "Ergothérapie — présentation" },
     ],
@@ -343,7 +344,7 @@ Il n'est jamais trop tôt ni trop tard pour consulter. L'ergothérapeute peut ai
     title: "Exercices Ergothérapie",
     description: "Exercices simples et gestes protecteurs à pratiquer au quotidien pour préserver la mobilité de vos mains.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Design_sans_titre-4_39e2cdc6-ed88-4a27-b4ff-cd78efb862a3.png",
+      require('../assets/images/articles/exercices-ergotherapie.webp'),
     date: "2024-08-02",
     images: [
       "https://cdn.shopify.com/s/files/1/0881/3287/8600/files/Capture_d_ecran_2025-08-12_a_15.38.49.png",
@@ -416,7 +417,7 @@ L'ergothérapie enseigne des gestes simples pour limiter les pressions sur les a
     title: "Ergonomie au travail",
     description: "Comment améliorer la qualité de vie professionnelle avec l'arthrose de la main.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Design_sans_titre-3_06771c50-d31b-4f4f-bcf2-85a959211a05.png",
+      require('../assets/images/articles/ergonomie-au-travail.webp'),
     content: `## Importance de l'ergonomie
 
 L'ergonomie au travail vise à adapter le poste et les gestes pour réduire les contraintes sur les articulations, prévenir la douleur et la fatigue, et ainsi préserver la fonction de la main malgré l'arthrose. Une bonne ergonomie permet aussi de limiter l'aggravation des lésions arthrosiques.
@@ -451,7 +452,7 @@ L'ergonomie au travail vise à adapter le poste et les gestes pour réduire les 
     title: "Ergothérapie et Gestion de la douleur",
     description: "Comment soulager la douleur grâce à l'ergothérapie.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Douleur_au_travail_en_teletravail_b926cec5-e3ce-44d5-9bdd-54f055145599.png",
+      require('../assets/images/articles/gestion-de-la-douleur.webp'),
     content: `## Comprendre la douleur liée à l'arthrose
 
 L'arthrose est une maladie dégénérative des articulations qui provoque une inflammation locale, entraînant des douleurs et une raideur, particulièrement au réveil ou après un effort. La douleur est un signal d'alerte, mais elle peut aussi devenir chronique et limiter la qualité de vie.
@@ -486,7 +487,7 @@ L'arthrose est une maladie dégénérative des articulations qui provoque une in
     title: "Matériels d'ergothérapie, Soins térébenthine",
     description: "Les bons gestes, les astuces du quotidien et les soins apaisants.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Design_sans_titre-5_d6e2b6f7-06c8-40f0-990d-7f57c5ef7bce.png",
+      require('../assets/images/articles/materiels-soins-terebenthine.webp'),
     content: `## Les bons outils pour protéger vos mains au quotidien
 
 Ici vous allez trouver des astuces pour la plupart des gestes du quotidien.
@@ -546,7 +547,7 @@ Ici vous allez trouver des astuces pour la plupart des gestes du quotidien.
     description:
       "Définition, mécanismes et bienfaits de l'hypnose dans la prise en charge de la douleur et de l'arthrose de la main.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Astuce_pratique-16_993553cc-a3de-42c6-a49e-58764d8dd056.png",
+      require('../assets/images/articles/quest-ce-que-l-hypnose.webp'),
     date: "2024-08-02",
     videos: [
       {
@@ -612,7 +613,7 @@ Demandez toujours quelle formation le praticien a suivie, et s'il travaille en l
     description:
       "Pratiquer l'hypnose sur soi-même pour gérer la douleur chronique, améliorer le sommeil et retrouver confort et mobilité.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Astuce_pratique-17_fd7e2daf-2614-41c7-ae5a-0b173d2cc0ed.png",
+      require('../assets/images/articles/auto-hypnose.webp'),
     content: `## 1. Définition
 
 L'auto-hypnose est une technique d'hypnose que l'on pratique sur soi-même, sans l'intervention directe d'un praticien. Elle consiste à induire volontairement un état hypnotique pour atteindre un objectif précis : gestion de la douleur, détente profonde, amélioration du sommeil, concentration, etc.
@@ -666,7 +667,7 @@ Pratiquer 5 à 10 minutes par jour suffit pour ressentir les bienfaits, et cela 
     description:
       "Comment l'hypnose prépare mentalement et physiologiquement à la chirurgie de la main et réduit le risque d'algoneurodystrophie.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/ChatGPT_Image_15_juil._2025_a_12_23_27_35cd7f95-9797-4940-9639-b4fba3ad79a1.png",
+      require('../assets/images/articles/hypnose-pre-operatoire.webp'),
     videos: [
       {
         embedUrl: "https://www.youtube.com/embed/AUEHMaAwFTk",
@@ -723,7 +724,7 @@ L'apprentissage de l'auto-hypnose avant la chirurgie permet d'être autonome dè
     description:
       "Apprendre à réduire soi-même la perception de la douleur avec la technique « La lumière apaisante ».",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Capture_d_ecran_2025-08-13_a_13.53.35_3c0de3ca-a787-4d80-9422-177478248a08.png",
+      require('../assets/images/articles/hypnose-anti-douleur.webp'),
     content: `## Objectif
 
 Apprendre à réduire soi-même la perception de la douleur, à détendre la main et à créer un espace intérieur de confort, utilisable en toute autonomie à la maison, au travail ou lors des soins.
@@ -788,7 +789,7 @@ Apprendre à réduire soi-même la perception de la douleur, à détendre la mai
     description:
       "Comprendre pourquoi l'arthrose de la main apparaît, comment elle évolue et ce qui peut l'aggraver.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/ChatGPT_Image_16_juil._2025_a_16_50_16_32bd410f-f25d-46d8-b037-0f6f68b41b1a.png",
+      require('../assets/images/articles/arthrose-pouce.webp'),
     date: "2026-05-18",
     content: `## Comprendre l'arthrose de la main et du pouce
 
@@ -875,7 +876,7 @@ Mieux comprendre son arthrose permet d'agir plus tôt et de préserver durableme
     description:
       "Définition, causes, symptômes, diagnostic et traitements de l'arthrose de la base du pouce.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/ChatGPT_Image_16_juil._2025_a_16_50_16_e2101b5d-c218-4804-aa6d-ec1e26edde7e.png",
+      require('../assets/images/articles/arthrose-pouce.webp'),
     videos: [
       {
         embedUrl: "https://www.youtube.com/embed/8hWU1x01hrU",
@@ -941,7 +942,7 @@ Le diagnostic repose sur :
     description:
       "Qu'est-ce qu'un chirurgien de la main ? Comment se déroule une intervention de rhizarthrose ?",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Astuce_pratique-19_5808fe9e-a19c-4d5c-a71d-2eda804ee51b.png",
+      require('../assets/images/articles/chirurgie-prothetique.webp'),
     videos: [
       { embedUrl: "https://www.youtube.com/embed/M4GSxkmvyJg", title: "Chirurgie prothétique — vidéo 1" },
       { embedUrl: "https://www.youtube.com/embed/PGBY51V_ipg", title: "Chirurgie prothétique — vidéo 2" },
@@ -1011,7 +1012,7 @@ L'intervention se déroule en plusieurs étapes : préparation métacarpienne et
     description:
       "Tout savoir sur les prothèses trapézométacarpiennes et digitales IPP",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Astuce_pratique-30_111ac8b4-d5ea-4a85-81af-47b88db9f53a.png",
+      require('../assets/images/articles/protheses-tmc-ipp.webp'),
     content: `## 1. Principe & fonctionnement de la prothèse TMC
 
 La prothèse utilise un concept de double mobilité, initialement développé pour les prothèses de hanche, appliqué à l'articulation trapézo-métacarpienne (base du pouce). Il comporte :
@@ -1095,7 +1096,7 @@ La prothèse IPP remplace l'articulation située entre la première et la deuxi�
     description:
       "Les principes fondamentaux d'une alimentation qui protège vos articulations au quotidien.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Astuce_pratique-17_8806a71d-b363-41f7-b8a1-214aa404019c.png",
+      require('../assets/images/articles/aliments-anti-inflammatoires.webp'),
     date: "2026-03-20",
     content: `## Les 10 règles d'or
 
@@ -1130,7 +1131,7 @@ La prothèse IPP remplace l'articulation située entre la première et la deuxi�
     description:
       "\"L'alimentation est la première des médecines.\" Comprendre comment l'assiette agit sur l'arthrose.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Design_sans_titre-5_f5888581-44a7-4e8b-9c14-073688c6067a.png",
+      require('../assets/images/articles/nutrition-anti-inflammatoire.webp'),
     date: "2025-10-24",
     videos: [
       {
@@ -1202,7 +1203,7 @@ Une personne souffrant de rhizarthrose qui adopte une alimentation riche en pois
     description:
       "Guide complet des aliments à privilégier pour soutenir vos articulations et réduire l'inflammation.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Astuce_pratique-2_12a441b6-ddd4-474a-9114-57ca2d3ca2ba.png",
+      require('../assets/images/articles/aliments-anti-inflammatoires.webp'),
     date: "2025-10-24",
     content: `## Soutenir vos articulations par l'assiette
 
@@ -1277,7 +1278,7 @@ Une alimentation anti-inflammatoire est l'un des piliers pour mieux vivre avec l
     description:
       "Guide complet pour composer des petits-déjeuners protecteurs et gourmands. Par Corinne Moulet, diététicienne micro-nutritionniste.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Astuce_pratique-35_2f6e5506-b215-453a-9011-6b2bb46788ff.png",
+      require('../assets/images/articles/petits-dejeuners.webp'),
     date: "2025-10-24",
     author: "Corinne Moulet — Diététicienne Micro-nutritionniste",
     content: `## La formule de base
@@ -1326,7 +1327,7 @@ Un petit-déjeuner anti-inflammatoire équilibré repose sur 4 éléments :
     description:
       "Une galerie de menus anti-inflammatoires pour s'inspirer au quotidien.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Astuce_pratique-7_24670c68-8809-436d-9140-a831cfd196d4.png",
+      require('../assets/images/articles/idees-menus.webp'),
     date: "2025-08-13",
     images: [
       "https://cdn.shopify.com/s/files/1/0881/3287/8600/files/Astuce_pratique-8.png",
@@ -1352,7 +1353,7 @@ Chaque menu respecte les principes de la nutrition anti-inflammatoire : abondanc
     description:
       "Vitamines, minéraux et oligo-éléments : comment la micronutrition optimise la santé articulaire.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Astuce_pratique-14_bded3d70-326d-4572-8de1-f055788b313b.png",
+      require('../assets/images/articles/micronutrition.webp'),
     date: "2024-08-02",
     content: `## 1. Qu'est-ce que la micronutrition ?
 
@@ -1399,7 +1400,7 @@ Dans l'arthrose, l'inflammation libère des enzymes destructrices qui dégradent
     poleSlug: "beaute",
     title: "Le Vieillissement cutané des mains",
     description: "Comment préserver et retrouver la jeunesse de nos mains",
-    image: "/images/beaute/vieillissement-mains.webp",
+    image: require('../assets/images/articles/prevention.webp'),
     content: `## 1. Les spécificités de la peau des mains
 
 - Peu de glandes sébacées → peau plus sèche que le visage, moins protégée par le film lipidique naturel
@@ -1446,7 +1447,7 @@ Un chirurgien de la main ou un dermatologue pourra évaluer l'état cutané et p
     poleSlug: "beaute",
     title: "Prévention",
     description: "Prévention du vieillissement de nos mains",
-    image: "/images/beaute/prevention.webp",
+    image: require('../assets/images/articles/prevention.webp'),
     content: `## 1. Protection solaire au quotidien
 
 - Crème SPF 30 à 50 toute l'année, réappliquée après lavage ou exposition prolongée
@@ -1490,7 +1491,7 @@ Une prévention régulière et cohérente permet de ralentir significativement l
     poleSlug: "beaute",
     title: "Les injections",
     description: "La médecine esthétique au profit de nos mains",
-    image: "/images/beaute/injections.webp",
+    image: require('../assets/images/articles/injections.webp'),
     content: `Les mains, tout comme le visage, sont l'un des premiers témoins visibles du temps qui passe. Avec l'âge, la peau s'affine, perd son élasticité, les veines et tendons deviennent plus apparents, et des taches peuvent se former. Pour celles et ceux qui souhaitent retrouver des mains plus jeunes, lisses et harmonieuses, la médecine esthétique propose aujourd'hui des solutions douces et efficaces.
 
 Les injections de produits de comblement permettent de restaurer le volume perdu, d'hydrater en profondeur et de stimuler la production naturelle de collagène. Elles s'adressent particulièrement aux personnes qui :
@@ -1549,7 +1550,7 @@ Il s'agit généralement du **Radiesse®** :
     description:
       "Objectifs, principes clés et contenu d'une séance type de kinésithérapie pour la rhizarthrose.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Astuce_pratique-22_f9dd5003-b2da-4442-81ce-26268b746f55.png",
+      require('../assets/images/articles/kinesitherapie-et-arthrose.webp'),
     date: "2025-10-24",
     content: `## Objectifs
 
@@ -1581,7 +1582,7 @@ Il s'agit généralement du **Radiesse®** :
     description:
       "Pourquoi consulter un kiné spécialiste de la main et comment se déroule la collaboration avec le chirurgien.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Astuce_pratique-27_13eb0eb4-6f4c-4afb-be03-d4c6328c8e1b.png",
+      require('../assets/images/articles/la-kinesitherapie.webp'),
     date: "2025-10-24",
     content: `## 1. Pourquoi la kinésithérapie est utile
 
@@ -1627,7 +1628,7 @@ Dans le cas d'une prothèse trapézo-métacarpienne ou interphalangienne proxima
     description:
       "Protocole de rééducation par phases après trapézectomie, ligamentoplastie ou prothèse TM.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/Astuce_pratique-25_b197a2a8-f599-4bc0-8758-2b15d7bce62b.png",
+      require('../assets/images/articles/kinesitherapie-post-chirurgie.webp'),
     date: "2025-10-24",
     content: `Les parcours varient selon la technique (trapézectomie-ligamentoplastie, prothèse TMC, autres). Les jalons ci-dessous sont des repères à adapter par le chirurgien et le kinésithérapeute.
 
@@ -1675,7 +1676,7 @@ Dans le cas d'une prothèse trapézo-métacarpienne ou interphalangienne proxima
     description:
       "Enjeux spécifiques de la rhizarthrose pour les musiciens : contraintes, orthèses fonctionnelles et solutions chirurgicales.",
     image:
-      "https://prevention-sante-arthrose-main.fr/cdn/shop/articles/ChatGPT_Image_24_oct._2025_a_13_54_18_42810976-0217-4644-9e12-611c881f798c.png",
+      require('../assets/images/articles/rhizarthrose-et-musicien.webp'),
     date: "2025-10-24",
     content: `La rhizarthrose est une atteinte dégénérative de la base du pouce susceptible de limiter la fonction de la main et a fortiori celle du musicien.
 
