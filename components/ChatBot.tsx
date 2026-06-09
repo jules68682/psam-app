@@ -130,18 +130,24 @@ export default function ChatBot() {
       const data = await response.json()
 
       if (!response.ok || data.type === 'error') {
+        // L'API a répondu mais refuse la requête (auth, quota/crédit, surcharge,
+        // erreur serveur…). Du point de vue utilisateur = service indisponible,
+        // pas un problème de connexion. On logge le détail technique en console.
         console.error('[ChatBot] Réponse API en erreur:', response.status, JSON.stringify(data))
-        setMessages([...newMessages, { role: 'assistant', content: t(lang, 'chatbot_error') }])
+        setMessages([...newMessages, { role: 'assistant', content: t(lang, 'chatbot_unavailable') }])
         return
       }
 
       const reply = data.content?.[0]?.text ?? t(lang, 'chatbot_no_reply')
       setMessages([...newMessages, { role: 'assistant', content: reply }])
     } catch (err) {
+      // Timeout (abort) => le service ne répond pas à temps = indisponible.
+      // Tout autre échec de fetch = vrai problème de connexion réseau.
+      const isTimeout = err instanceof Error && err.name === 'AbortError'
       console.error('[ChatBot] Échec envoi message:', err)
       setMessages([...newMessages, {
         role: 'assistant',
-        content: t(lang, 'chatbot_error'),
+        content: t(lang, isTimeout ? 'chatbot_unavailable' : 'chatbot_error'),
       }])
     } finally {
       setIsLoading(false)
