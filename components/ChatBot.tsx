@@ -144,13 +144,18 @@ export default function ChatBot() {
       const reply = data.content?.[0]?.text ?? t(lang, 'chatbot_no_reply')
       setMessages([...newMessages, { role: 'assistant', content: reply }])
     } catch (err) {
-      // Timeout (abort) => le service ne répond pas à temps = indisponible.
-      // Tout autre échec de fetch = vrai problème de connexion réseau.
-      const isTimeout = err instanceof Error && err.name === 'AbortError'
+      // On classe l'échec pour choisir un message calme et adapté :
+      // - TypeError « Network request failed » = vraie absence de réseau
+      //   (téléphone hors-ligne) -> message orienté connexion internet.
+      // - Tout le reste (timeout/abort, JSON invalide, erreur inattendue) =
+      //   le service ne répond pas correctement -> « assistant indisponible ».
+      //   On ne suggère JAMAIS « vérifiez votre connexion » dans ces cas,
+      //   pour ne pas faire croire à un dysfonctionnement de l'app.
+      const isOffline = err instanceof TypeError
       console.error('[ChatBot] Échec envoi message:', err)
       setMessages([...newMessages, {
         role: 'assistant',
-        content: t(lang, isTimeout ? 'chatbot_unavailable' : 'chatbot_error'),
+        content: t(lang, isOffline ? 'chatbot_error' : 'chatbot_unavailable'),
       }])
     } finally {
       setIsLoading(false)
