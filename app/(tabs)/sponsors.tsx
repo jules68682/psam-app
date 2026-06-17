@@ -33,6 +33,29 @@ export default function SponsorsScreen() {
           <Text style={sp.pageSub}>{t(lang, 'sponsors_subtitle')}</Text>
         </View>
 
+        {/* Card Thermes Adour */}
+        <View style={sp.card}>
+          <View style={sp.logoTile}>
+            <Image
+              source={require('../../assets/images/thermes-adour.png')}
+              style={sp.logoTileImg}
+              resizeMode="contain"
+            />
+          </View>
+          <View style={sp.badge}>
+            <Text style={sp.badgeText}>{t(lang, 'partenaire_bienetre')}</Text>
+          </View>
+          <Text style={sp.sponsorName}>Thermes Adour</Text>
+          <Text style={sp.sponsorDesc}>{t(lang, 'thermes_desc')}</Text>
+          <TouchableOpacity
+            style={sp.visitBtn}
+            activeOpacity={0.8}
+            onPress={() => openLink('https://www.thermes-dax.com/')}
+          >
+            <Text style={sp.visitBtnText}>{t(lang, 'visiter_site')}</Text>
+          </TouchableOpacity>
+        </View>
+
         {/* Card Arthrose du Pouce */}
         <View style={sp.card}>
           <Image
@@ -172,6 +195,11 @@ const sp = StyleSheet.create({
     shadowColor: '#000', shadowOffset: { width: 0, height: 2 }, shadowOpacity: 0.08, shadowRadius: 8, elevation: 3,
   },
   logo: { width: '100%', height: 70, marginBottom: 16 },
+  logoTile: {
+    width: 96, height: 96, borderRadius: 16, overflow: 'hidden',
+    backgroundColor: '#3A4C74', alignSelf: 'center', marginBottom: 16,
+  },
+  logoTileImg: { width: '100%', height: '100%' },
   badge: {
     backgroundColor: 'rgba(31,61,43,0.1)', borderRadius: 20,
     alignSelf: 'flex-start', paddingHorizontal: 12, paddingVertical: 5, marginBottom: 10,
