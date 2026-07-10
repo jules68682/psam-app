@@ -131,6 +131,31 @@ export default function PolesScreen() {
             </TouchableOpacity>
           );
         })}
+
+        {/* Accès au compartiment Thermalisme (partenariat Thermes Adour) */}
+        <TouchableOpacity
+          style={s.poleCard}
+          activeOpacity={0.8}
+          onPress={() => router.push('/thermalisme')}
+          accessibilityRole="button"
+          accessibilityLabel="Thermalisme"
+        >
+          <Image
+            source={require('../../assets/images/thermalisme-paysage.jpg')}
+            style={s.poleCardImage}
+            resizeMode="cover"
+          />
+          <View style={s.poleCardBody}>
+            <Text style={s.poleCardTitle}>Thermalisme</Text>
+            <Text style={s.poleCardDesc} numberOfLines={2}>
+              Cures thermales et arthrose de la main, en partenariat avec les Thermes Adour.
+            </Text>
+            <View style={s.poleCardRow}>
+              <Text style={s.poleCardCount}>Thermes Adour</Text>
+              <Text style={s.poleCardCta}>{t(lang, 'poles_voir')} ›</Text>
+            </View>
+          </View>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );

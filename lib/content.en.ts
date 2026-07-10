@@ -144,12 +144,6 @@ export const partners: Partner[] = [
     "name": "Fondation Crédit Agricole",
     "logo": "https://cdn.shopify.com/s/files/1/0881/3287/8600/files/Capture_d_ecran_2025-09-10_a_18.15.58.png",
     "url": "https://www.fondation-ca-solidaritedeveloppement.org"
-  },
-  {
-    "id": "sogeca",
-    "name": "SOGECA",
-    "logo": "https://cdn.shopify.com/s/files/1/0881/3287/8600/files/Capture_d_ecran_2025-09-10_a_18.17.11.png",
-    "url": "https://www.sogeca.com"
   }
 ];
 

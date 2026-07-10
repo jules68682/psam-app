@@ -98,27 +98,6 @@ export default function SponsorsScreen() {
           </TouchableOpacity>
         </View>
 
-        {/* Card SOGECA */}
-        <View style={sp.card}>
-          <Image
-            source={{ uri: 'https://cdn.shopify.com/s/files/1/0881/3287/8600/files/Capture_d_ecran_2025-09-10_a_18.17.11.png' }}
-            style={sp.logo}
-            resizeMode="contain"
-          />
-          <View style={sp.badge}>
-            <Text style={sp.badgeText}>{t(lang, 'partenaire_fin')}</Text>
-          </View>
-          <Text style={sp.sponsorName}>SOGECA</Text>
-          <Text style={sp.sponsorDesc}>{t(lang, 'sponsor3_desc')}</Text>
-          <TouchableOpacity
-            style={sp.visitBtn}
-            activeOpacity={0.8}
-            onPress={() => openLink('https://www.sogeca.com')}
-          >
-            <Text style={sp.visitBtnText}>{t(lang, 'visiter_site')}</Text>
-          </TouchableOpacity>
-        </View>
-
         {/* Card e-Nable 360 */}
         <View style={sp.card}>
           <Image
